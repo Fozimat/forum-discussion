@@ -1,10 +1,12 @@
 import { ActionType } from "./action";
 
-const receiveLeaderboardsReducer = (action = {}) => {
+const leaderboardsReducer = (leaderboards = [], action = {}) => {
     switch (action.type) {
         case ActionType.RECEIVE_LEADERBOARS:
             return action.payload.leaderboards;
+        default:
+            return leaderboards;
     }
 }
 
-export default receiveLeaderboardsReducer;
+export default leaderboardsReducer;

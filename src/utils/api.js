@@ -30,7 +30,7 @@ const api = (() => {
             }),
         });
 
-        const responseJson = response.json();
+        const responseJson = await response.json();
         const { status, message } = responseJson;
 
         if (status !== 'success') {
@@ -53,7 +53,7 @@ const api = (() => {
             }),
         });
 
-        const responseJson = response.json();
+        const responseJson = await response.json();
 
         const { status, message } = responseJson;
 
@@ -68,7 +68,7 @@ const api = (() => {
 
     const getOwnProfile = async () => {
         const response = await _fetchWithAuth(`${BASE_URL}/users/me`);
-        const responseJson = response.json();
+        const responseJson = await response.json();
 
         const { status, message } = responseJson;
 
@@ -81,7 +81,7 @@ const api = (() => {
 
     const getAllUsers = async () => {
         const response = await _fetchWithAuth(`${BASE_URL}/users`);
-        const responseJson = response.json();
+        const responseJson = await response.json();
 
         const { status, message } = responseJson;
 
@@ -102,7 +102,7 @@ const api = (() => {
             }),
         });
 
-        const responseJson = response.json();
+        const responseJson = await response.json();
         const { status, message } = responseJson;
 
         if (status !== 'success') throw new Error(message);
@@ -113,8 +113,8 @@ const api = (() => {
     }
 
     const getAllThreads = async () => {
-        const response = await _fetchWithAuth(`${BASE_URL}/threads`);
-        const responseJson = response.json();
+        const response = await fetch(`${BASE_URL}/threads`);
+        const responseJson = await response.json();
 
         const { status, message } = responseJson;
 
@@ -125,15 +125,15 @@ const api = (() => {
     }
 
     const getThreadDetail = async (id) => {
-        const response = await _fetchWithAuth(`${BASE_URL}/thread/${id}`);
-        const responseJson = response.json();
+        const response = await fetch(`${BASE_URL}/threads/${id}`);
+        const responseJson = await response.json();
 
         const { status, message } = responseJson;
 
         if (status !== 'success') throw new Error(message);
 
-        const { data: { detailThread, comments } } = responseJson;
-        return { detailThread, comments };
+        const { data: { detailThread } } = responseJson;
+        return detailThread;
     }
 
     const createComment = async ({ threadId, content }) => {
@@ -146,7 +146,7 @@ const api = (() => {
                 content
             }),
         });
-        const responseJson = response.json();
+        const responseJson = await response.json();
 
         const { status, message } = responseJson;
         if (status !== 'success') throw new Error(message);
@@ -164,7 +164,7 @@ const api = (() => {
             body: JSON.stringify({})
         });
 
-        const responseJson = response.json();
+        const responseJson = await response.json();
         const { status, message } = responseJson;
 
         if (status !== 'success') throw new Error(message);
@@ -201,7 +201,7 @@ const api = (() => {
             body: JSON.stringify({})
         });
 
-        const responseJson = response.json();
+        const responseJson = await response.json();
         const { status, message } = responseJson;
 
         if (status !== 'success') throw new Error(message);
@@ -220,7 +220,7 @@ const api = (() => {
             body: JSON.stringify({})
         });
 
-        const responseJson = response.json();
+        const responseJson = await response.json();
         const { status, message } = responseJson;
 
         if (status !== 'success') throw new Error(message);
@@ -232,7 +232,7 @@ const api = (() => {
 
     const getLeaderboards = async () => {
         const response = await fetch(`${BASE_URL}/leaderboards`);
-        const responseJson = response.json();
+        const responseJson = await response.json();
 
         const { status, message } = responseJson;
 

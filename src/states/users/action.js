@@ -14,11 +14,13 @@ const receiveUserActionCreator = (users) => {
     };
 }
 
-const asyncRegisterUser = ({ name, email, password }) => {
+const asyncRegisterUser = ({ name, email, password, callbackSuccess = () => { } }) => {
     return async (dispatch) => {
         dispatch(showLoading());
         try {
             await api.register({ name, email, password });
+            alert('Registered successfully');
+            callbackSuccess();
         } catch (error) {
             alert(error.message);
         } finally {

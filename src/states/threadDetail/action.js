@@ -24,7 +24,7 @@ const clearTalkDetailActionCreator = () => {
 const asyncReceiveThread = (threadId) => {
     return async (dispatch) => {
         dispatch(showLoading());
-        clearTalkDetailActionCreator();
+        dispatch(clearTalkDetailActionCreator());
         try {
             const threadDetail = await api.getThreadDetail(threadId);
             dispatch(receiveThreadDetailActionCreator(threadDetail));

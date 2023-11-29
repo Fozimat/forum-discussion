@@ -7,7 +7,7 @@ const threadDetailReducer = (threadDetail = null, action = {}) => {
         case ActionType.CLEAR_TALK_DETAIL:
             return null;
         default:
-            threadDetail;
+            return threadDetail;
     }
 }
 
