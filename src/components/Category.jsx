@@ -1,7 +1,13 @@
+import { createSelector } from "@reduxjs/toolkit";
 import { useSelector } from "react-redux";
 
 const Category = () => {
-  const { threads = [] } = useSelector((state) => state);
+  const selector = createSelector(
+    (state) => state.threads,
+    (threads) => ({ threads })
+  );
+
+  const { threads = [] } = useSelector(selector);
 
   const category = threads.map(({ category }) => category);
   const uniqueCategory = category.filter((cat, index, arr) => {

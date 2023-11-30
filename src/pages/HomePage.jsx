@@ -4,13 +4,17 @@ import ThreadList from "../components/ThreadsList";
 import { useEffect } from "react";
 import asyncPopulateThreadsAndUser from "../states/shared/action";
 import AddButton from "../components/AddButton";
+import { createSelector } from "@reduxjs/toolkit";
 
 const HomePage = () => {
-  const {
-    threads = [],
-    users = [],
-    authUser,
-  } = useSelector((states) => states);
+  const selector = createSelector(
+    (state) => state.threads,
+    (state) => state.users,
+    (state) => state.authUser,
+    (threads, users, authUser) => ({ threads, users, authUser })
+  );
+
+  const { threads = [], users = [], authUser } = useSelector(selector);
 
   const dispatch = useDispatch();
 
@@ -25,7 +29,7 @@ const HomePage = () => {
   }));
 
   return (
-    <section className="bg-gray-50 flex h-screen">
+    <section className="bg-gray-50 flex min-h-screen">
       <div className="container mx-auto px-5 mt-8 ">
         <Category />
         <h2 className="text-3xl font-bold">Diskusi Tersedia</h2>

@@ -1,9 +1,9 @@
 import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 import { FaRegCommentDots } from "react-icons/fa";
-import PropTypes from "prop-types";
 import { postedAt } from "../utils/helper";
 import ThreadBody from "./ThreadBody";
 import { Link } from "react-router-dom";
+import { propThreads } from "../utils/props";
 
 const ThreadItem = ({
   id,
@@ -46,27 +46,8 @@ const ThreadItem = ({
   );
 };
 
-const userShape = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-};
-
-const threadItemShape = {
-  id: PropTypes.string.isRequired,
-  user: PropTypes.shape(userShape).isRequired,
-  title: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
-  createdAt: PropTypes.string.isRequired,
-  totalComments: PropTypes.number.isRequired,
-  upVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
-  downVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
-};
-
 ThreadItem.propTypes = {
-  ...threadItemShape,
+  ...propThreads,
 };
-
-export { threadItemShape };
 
 export default ThreadItem;

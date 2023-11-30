@@ -10,12 +10,17 @@ import { asyncUnsetAuthUser } from "./states/authUser/action";
 import { asyncPreloadProcess } from "./states/isPreload/action";
 import LeaderboardsPage from "./pages/LeaderboardsPage";
 import AddPage from "./pages/AddPage";
+import DetailPage from "./pages/DetailPage";
+import { createSelector } from "@reduxjs/toolkit";
 
 function App() {
-  const { authUser = null, isPreload = false } = useSelector(
-    (states) => states
+  const selector = createSelector(
+    (state) => state.authUser,
+    (state) => state.isPreload,
+    (authUser, isPreload) => ({ authUser, isPreload })
   );
 
+  const { authUser = null, isPreload = false } = useSelector(selector);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -54,7 +59,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/threads/new" element={<AddPage />} />
-          <Route path="/threads/:id" element={<p>Halaman detail</p>} />
+          <Route path="/threads/:id" element={<DetailPage />} />
           <Route path="/leaderboards" element={<LeaderboardsPage />} />
         </Routes>
       </main>

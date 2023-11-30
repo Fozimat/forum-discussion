@@ -1,4 +1,5 @@
-import ThreadItem, { threadItemShape } from "./ThreadItem";
+import { propThreads } from "../utils/props";
+import ThreadItem from "./ThreadItem";
 import PropTypes from "prop-types";
 
 const ThreadList = ({ threads }) => {
@@ -12,7 +13,7 @@ const ThreadList = ({ threads }) => {
 };
 
 ThreadList.propTypes = {
-  threads: PropTypes.arrayOf(PropTypes.shape(threadItemShape)).isRequired,
+  threads: PropTypes.arrayOf(PropTypes.shape(propThreads)).isRequired,
 };
 
 export default ThreadList;
