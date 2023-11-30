@@ -120,8 +120,8 @@ const api = (() => {
 
         if (status !== 'success') throw new Error(message);
 
-        const { data: { thrads } } = responseJson;
-        return thrads;
+        const { data: { threads } } = responseJson;
+        return threads;
     }
 
     const getThreadDetail = async (id) => {

@@ -1,37 +1,69 @@
 import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 import { FaRegCommentDots } from "react-icons/fa";
+import PropTypes from "prop-types";
+import { postedAt } from "../utils/helper";
+import ThreadBody from "./ThreadBody";
 
-const ThreadItem = () => {
+const ThreadItem = ({
+  id,
+  user,
+  title,
+  body,
+  category,
+  createdAt,
+  totalComments,
+  upVotesBy,
+  downVotesBy,
+}) => {
   return (
     <>
-      <div className="mb-2">
-        <button className="bg-transparent hover:bg-blue-500 text-blue-700 hover:text-white px-4 py-0.5 border border-blue-500 hover:border-transparent rounded-lg text-sm">
-          #Redux
-        </button>
-      </div>
-      <h3 className="text-xl font-bold text-blue-700 ">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit
-      </h3>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt vero
-        voluptatem laudantium error animi quidem ad dolorem, accusamus nobis
-        sit. Voluptates porro ducimus fuga. Officiis repudiandae voluptas facere
-        blanditiis fugit.
-      </p>
-      <div className="flex items-center mt-4">
-        <AiOutlineLike />
-        <span className="mr-4 ml-1">0</span>
-        <AiOutlineDislike />
-        <span className="mr-4 ml-1">0</span>
-        <FaRegCommentDots />
-        <span className="mr-4 ml-1">0</span>
-        <p className="text-gray-500">
-          Dibuat oleh{" "}
-          <span className="text-blue-600 font-medium">Mr.Jalan</span>
-        </p>
+      <div className="border-b border-gray-300 pb-2 mb-5">
+        <div className="mb-2">
+          <button className="bg-transparent hover:bg-blue-500 text-blue-700 hover:text-white px-4 py-0.5 border border-blue-500 hover:border-transparent rounded-lg text-sm">
+            #{category}
+          </button>
+        </div>
+        <h3 className="text-xl font-bold text-blue-700 ">{title}</h3>
+        <ThreadBody htmlContent={body} maxLength={250} />
+        <div className="flex items-center mt-4">
+          <AiOutlineLike />
+          <span className="mr-4 ml-1">{upVotesBy.length}</span>
+          <AiOutlineDislike />
+          <span className="mr-4 ml-1">{downVotesBy.length}</span>
+          <FaRegCommentDots />
+          <span className="mr-4 ml-1">{totalComments}</span>
+          <p className="text-gray-500">
+            Dibuat oleh{" "}
+            <span className="text-blue-600 font-medium">{user.name}</span>{" "}
+            <span>{postedAt(createdAt)}</span>
+          </p>
+        </div>
       </div>
     </>
   );
 };
+
+const userShape = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+};
+
+const threadItemShape = {
+  id: PropTypes.string.isRequired,
+  user: PropTypes.shape(userShape).isRequired,
+  title: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  createdAt: PropTypes.string.isRequired,
+  totalComments: PropTypes.number.isRequired,
+  upVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
+  downVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
+
+ThreadItem.propTypes = {
+  ...threadItemShape,
+};
+
+export { threadItemShape };
 
 export default ThreadItem;
