@@ -3,6 +3,7 @@ import Category from "../components/Category";
 import ThreadList from "../components/ThreadsList";
 import { useEffect } from "react";
 import asyncPopulateThreadsAndUser from "../states/shared/action";
+import AddButton from "../components/AddButton";
 
 const HomePage = () => {
   const {
@@ -29,6 +30,7 @@ const HomePage = () => {
         <Category />
         <h2 className="text-3xl font-bold">Diskusi Tersedia</h2>
         <ThreadList threads={threadList} />
+        <AddButton />
       </div>
     </section>
   );

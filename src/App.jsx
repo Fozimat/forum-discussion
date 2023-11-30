@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { asyncUnsetAuthUser } from "./states/authUser/action";
 import { asyncPreloadProcess } from "./states/isPreload/action";
 import LeaderboardsPage from "./pages/LeaderboardsPage";
+import AddPage from "./pages/AddPage";
 
 function App() {
   const { authUser = null, isPreload = false } = useSelector(
@@ -52,7 +53,8 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path=":/threads/:id" element={<p>Halaman detail</p>} />
+          <Route path="/threads/new" element={<AddPage />} />
+          <Route path="/threads/:id" element={<p>Halaman detail</p>} />
           <Route path="/leaderboards" element={<LeaderboardsPage />} />
         </Routes>
       </main>

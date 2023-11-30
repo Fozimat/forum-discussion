@@ -34,12 +34,13 @@ const addCommentActionCreator = (comment) => {
     };
 }
 
-const asyncAddThread = ({ title, body, category = '' }) => {
+const asyncAddThread = ({ title, body, category = '', callbackSuccess = () => { } }) => {
     return async (dispatch) => {
         dispatch(showLoading());
         try {
             const thread = await api.createThread({ title, body, category });
             dispatch(addThreadActionCreator(thread));
+            callbackSuccess();
         } catch (error) {
             alert(error.message);
         } finally {

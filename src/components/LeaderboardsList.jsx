@@ -20,8 +20,8 @@ const userItemShape = {
 };
 
 const leaderboardShape = {
-  user: PropTypes.shape(userItemShape),
-  score: PropTypes.number,
+  user: PropTypes.shape(userItemShape).isRequired,
+  score: PropTypes.number.isRequired,
 };
 
 LeaderboardsList.propTypes = {

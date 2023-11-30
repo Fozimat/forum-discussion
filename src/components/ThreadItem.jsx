@@ -3,6 +3,7 @@ import { FaRegCommentDots } from "react-icons/fa";
 import PropTypes from "prop-types";
 import { postedAt } from "../utils/helper";
 import ThreadBody from "./ThreadBody";
+import { Link } from "react-router-dom";
 
 const ThreadItem = ({
   id,
@@ -23,7 +24,9 @@ const ThreadItem = ({
             #{category}
           </button>
         </div>
-        <h3 className="text-xl font-bold text-blue-700 ">{title}</h3>
+        <Link className="text-xl font-bold text-blue-700" to={`/threads/${id}`}>
+          {title}
+        </Link>
         <ThreadBody htmlContent={body} maxLength={250} />
         <div className="flex items-center mt-4">
           <AiOutlineLike />
