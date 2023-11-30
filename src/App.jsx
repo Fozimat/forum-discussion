@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { asyncUnsetAuthUser } from "./states/authUser/action";
 import { asyncPreloadProcess } from "./states/isPreload/action";
+import LeaderboardsPage from "./pages/LeaderboardsPage";
 
 function App() {
   const { authUser = null, isPreload = false } = useSelector(
@@ -52,7 +53,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path=":/threads/:id" element={<p>Halaman detail</p>} />
-          <Route path="/leaderboards" element={<p>Halaman leaderboards</p>} />
+          <Route path="/leaderboards" element={<LeaderboardsPage />} />
         </Routes>
       </main>
     </>
