@@ -6,7 +6,6 @@ import { postedAt } from "../utils/helper";
 import parse from "html-react-parser";
 
 const ThreadDetailList = ({ threadDetail }) => {
-  // console.log(threadDetail);
   return (
     <div className="py-4 mb-4">
       <div className="mb-2">

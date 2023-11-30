@@ -5,10 +5,15 @@ import { asyncReceiveThread } from "../states/threadDetail/action";
 import ThreadDetailList from "../components/ThreadDetailList";
 import ThreadComment from "../components/ThreadComment";
 import ThreadCommentInput from "../components/ThreadCommentInput";
+import { createSelector } from "@reduxjs/toolkit";
 
 const DetailPage = () => {
   const { id } = useParams();
-  const { threadDetail = null } = useSelector((states) => states);
+  const selector = createSelector(
+    (state) => state.threadDetail,
+    (threadDetail) => ({ threadDetail })
+  );
+  const { threadDetail = null } = useSelector(selector);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -16,8 +21,6 @@ const DetailPage = () => {
   }, [id, dispatch]);
 
   if (!threadDetail) return null;
-
-  // console.log(threadDetail);
 
   return (
     <section className="bg-gray-50 flex min-h-screen">

@@ -2,6 +2,7 @@ import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 import PropTypes from "prop-types";
 import { propDetailThread } from "../utils/props";
 import parse from "html-react-parser";
+import { postedAt } from "../utils/helper";
 
 const ThreadComment = ({ threadDetail }) => {
   return (
@@ -11,14 +12,18 @@ const ThreadComment = ({ threadDetail }) => {
       </h2>
       {threadDetail.comments.map((comment) => (
         <div className="border-b border-gray-200 pb-2 mb-5" key={comment.id}>
-          <div className="flex items-center">
-            <img
-              src="https://ui-avatars.com/api/?name=Dimas%20Saputra&background=random"
-              alt="Avatar"
-              className="w-10 h-10 rounded-full mr-4"
-            />
-            <span className="font-semibold">{comment.owner.name}</span>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center">
+              <img
+                src={comment.owner.avatar}
+                alt="avatar"
+                className="w-10 h-10 rounded-full mr-4"
+              />
+              <span className="font-semibold">{comment.owner.name}</span>
+            </div>
+            <span className="text-gray-500">{postedAt(comment.createdAt)}</span>
           </div>
+
           <div className="py-1">{parse(comment.content)}</div>
           <div className="flex flex-row items-center my-2">
             <AiOutlineLike />

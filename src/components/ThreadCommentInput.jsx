@@ -10,7 +10,6 @@ const ThreadCommentInput = () => {
             id="body"
             rows={5}
             className="mt-1 p-2 border w-full rounded-md  border-gray-300 focus:outline-none focus:border-blue-500"
-            placeholder="Masukkan isi..."
           />
         </div>
         <button
