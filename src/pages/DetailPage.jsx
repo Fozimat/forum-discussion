@@ -9,6 +9,7 @@ import ThreadDetailList from "../components/ThreadDetailList";
 import ThreadComment from "../components/ThreadComment";
 import ThreadCommentInput from "../components/ThreadCommentInput";
 import { createSelector } from "@reduxjs/toolkit";
+import asyncPopulateThreadsAndUser from "../states/shared/action";
 
 const DetailPage = () => {
   const { id } = useParams();
@@ -21,6 +22,7 @@ const DetailPage = () => {
 
   const addReplyThread = ({ content }) => {
     dispatch(asyncAddComment({ threadId: id, content }));
+    dispatch(asyncPopulateThreadsAndUser());
   };
 
   useEffect(() => {

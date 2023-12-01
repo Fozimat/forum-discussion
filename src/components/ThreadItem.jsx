@@ -16,6 +16,7 @@ const ThreadItem = ({
   upVotesBy,
   downVotesBy,
 }) => {
+  // console.log({ category });
   return (
     <>
       <div className="border-b border-gray-300 pb-2 mb-5">

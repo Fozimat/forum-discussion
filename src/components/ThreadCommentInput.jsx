@@ -2,11 +2,12 @@ import PropTypes from "prop-types";
 import useInput from "../hooks/useInput";
 
 const ThreadCommentInput = ({ replyThread }) => {
-  const [content, onContentChange] = useInput("");
+  const [content, onContentChange, setContent] = useInput("");
 
   const addComment = (e) => {
     e.preventDefault();
     replyThread({ content });
+    setContent("");
   };
 
   return (

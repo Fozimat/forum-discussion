@@ -1,16 +1,13 @@
 import PropTypes from "prop-types";
+import parse from "html-react-parser";
 
 const ThreadBody = ({ htmlContent, maxLength }) => {
-  const text = htmlContent.replace(/<[^>]*>/g, "");
   const truncateText =
-    text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
+    htmlContent.length > maxLength
+      ? `${htmlContent.slice(0, maxLength)}...`
+      : htmlContent;
 
-  return (
-    <div
-      className="overflow-hidden"
-      dangerouslySetInnerHTML={{ __html: truncateText }}
-    />
-  );
+  return <div className="overflow-hidden">{parse(truncateText)}</div>;
 };
 
 ThreadBody.propTypes = {
