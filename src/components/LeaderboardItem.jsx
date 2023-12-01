@@ -1,6 +1,7 @@
+import React from "react";
 import PropTypes from "prop-types";
 
-const LeaderboardItem = ({ user, score }) => {
+function LeaderboardItem({ user, score }) {
   return (
     <div
       key={user.id}
@@ -17,7 +18,7 @@ const LeaderboardItem = ({ user, score }) => {
       </div>
     </div>
   );
-};
+}
 
 const userItemShape = {
   id: PropTypes.string.isRequired,

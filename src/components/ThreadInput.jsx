@@ -1,7 +1,8 @@
+import React from "react";
 import PropTypes from "prop-types";
 import useInput from "../hooks/useInput";
 
-const ThreadInput = ({ onThread }) => {
+function ThreadInput({ onThread }) {
   const [title, onTitteChange] = useInput("");
   const [category, onCategoryChange] = useInput("");
   const [body, onBodyChange] = useInput("");
@@ -70,7 +71,7 @@ const ThreadInput = ({ onThread }) => {
       </button>
     </form>
   );
-};
+}
 
 ThreadInput.propTypes = {
   onThread: PropTypes.func.isRequired,

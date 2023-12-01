@@ -1,17 +1,17 @@
 import { Routes, Route } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { createSelector } from "@reduxjs/toolkit";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import Navigation from "./components/Navigation";
 import HomePage from "./pages/HomePage";
 import Loading from "./components/Loading";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
 import { asyncUnsetAuthUser } from "./states/authUser/action";
 import { asyncPreloadProcess } from "./states/isPreload/action";
 import LeaderboardsPage from "./pages/LeaderboardsPage";
 import AddPage from "./pages/AddPage";
 import DetailPage from "./pages/DetailPage";
-import { createSelector } from "@reduxjs/toolkit";
 
 function App() {
   const selector = createSelector(

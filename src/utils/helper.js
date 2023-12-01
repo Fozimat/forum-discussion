@@ -17,6 +17,6 @@ const postedAt = (date) => {
         return `${diffSeconds} detik yang lalu`;
     }
     return 'baru saja';
-}
+};
 
 export { postedAt };

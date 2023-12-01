@@ -1,7 +1,8 @@
+import React from "react";
 import { createSelector } from "@reduxjs/toolkit";
 import { useSelector } from "react-redux";
 
-const Category = () => {
+function Category() {
   const selector = createSelector(
     (state) => state.threads,
     (threads) => ({ threads })
@@ -10,9 +11,9 @@ const Category = () => {
   const { threads = [] } = useSelector(selector);
 
   const category = threads.map(({ category }) => category);
-  const uniqueCategory = category.filter((cat, index, arr) => {
-    return arr.indexOf(cat) === index;
-  });
+  const uniqueCategory = category.filter(
+    (cat, index, arr) => arr.indexOf(cat) === index
+  );
 
   return (
     <>
@@ -20,7 +21,10 @@ const Category = () => {
       <ul className="flex mb-8">
         {uniqueCategory.map((category, key) => (
           <li className="mr-4" key={key}>
-            <button className="bg-transparent hover:bg-blue-500 text-blue-700 hover:text-white px-4 py-0.5 border border-blue-500 hover:border-transparent rounded-lg text-sm">
+            <button
+              type="button"
+              className="bg-transparent hover:bg-blue-500 text-blue-700 hover:text-white px-4 py-0.5 border border-blue-500 hover:border-transparent rounded-lg text-sm"
+            >
               #{category}
             </button>
           </li>
@@ -28,6 +32,6 @@ const Category = () => {
       </ul>
     </>
   );
-};
+}
 
 export default Category;

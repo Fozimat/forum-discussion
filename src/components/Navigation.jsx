@@ -1,8 +1,9 @@
+import React from "react";
 import { FaWolfPackBattalion } from "react-icons/fa";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const Navigation = ({ signOut }) => {
+function Navigation({ signOut }) {
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -70,7 +71,7 @@ const Navigation = ({ signOut }) => {
       </div>
     </nav>
   );
-};
+}
 
 Navigation.propTypes = {
   signOut: PropTypes.func.isRequired,

@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { createSelector } from "@reduxjs/toolkit";
 import {
   asyncAddComment,
   asyncReceiveThread,
@@ -8,10 +9,9 @@ import {
 import ThreadDetailList from "../components/ThreadDetailList";
 import ThreadComment from "../components/ThreadComment";
 import ThreadCommentInput from "../components/ThreadCommentInput";
-import { createSelector } from "@reduxjs/toolkit";
 import asyncPopulateThreadsAndUser from "../states/shared/action";
 
-const DetailPage = () => {
+function DetailPage() {
   const { id } = useParams();
   const selector = createSelector(
     (state) => state.threadDetail,
@@ -40,6 +40,6 @@ const DetailPage = () => {
       </div>
     </section>
   );
-};
+}
 
 export default DetailPage;

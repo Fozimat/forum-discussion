@@ -1,8 +1,9 @@
+import React from "react";
+import PropTypes from "prop-types";
 import { propThreads } from "../utils/props";
 import ThreadItem from "./ThreadItem";
-import PropTypes from "prop-types";
 
-const ThreadList = ({ threads }) => {
+function ThreadList({ threads }) {
   return (
     <div className="py-4 mb-4">
       {threads.map((thread) => (
@@ -10,7 +11,7 @@ const ThreadList = ({ threads }) => {
       ))}
     </div>
   );
-};
+}
 
 ThreadList.propTypes = {
   threads: PropTypes.arrayOf(PropTypes.shape(propThreads)).isRequired,

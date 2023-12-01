@@ -1,7 +1,8 @@
+import React from "react";
 import PropTypes from "prop-types";
 import useInput from "../hooks/useInput";
 
-const ThreadCommentInput = ({ replyThread }) => {
+function ThreadCommentInput({ replyThread }) {
   const [content, onContentChange, setContent] = useInput("");
 
   const addComment = (e) => {
@@ -34,7 +35,7 @@ const ThreadCommentInput = ({ replyThread }) => {
       </form>
     </div>
   );
-};
+}
 
 ThreadCommentInput.propTypes = {
   replyThread: PropTypes.func.isRequired,

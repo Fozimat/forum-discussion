@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-import LeaderboardsList from "../components/LeaderboardsList";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { createSelector } from "@reduxjs/toolkit";
+import LeaderboardsList from "../components/LeaderboardsList";
 import { asyncReceiveLeaderboards } from "../states/leaderboards/action";
 
-const LeaderboardsPage = () => {
+function LeaderboardsPage() {
   const selector = createSelector(
     (state) => state.leaderboards,
     (leaderboards) => ({ leaderboards })
@@ -26,6 +26,6 @@ const LeaderboardsPage = () => {
       <LeaderboardsList leaderboardsList={leaderboardList} />
     </div>
   );
-};
+}
 
 export default LeaderboardsPage;

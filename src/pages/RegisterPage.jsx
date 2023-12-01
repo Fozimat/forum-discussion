@@ -1,9 +1,10 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import RegisterInput from "../components/RegisterInput";
 import { useDispatch } from "react-redux";
+import RegisterInput from "../components/RegisterInput";
 import { asyncRegisterUser } from "../states/users/action";
 
-const RegisterPage = () => {
+function RegisterPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -23,6 +24,6 @@ const RegisterPage = () => {
       <RegisterInput register={onRegister} />
     </section>
   );
-};
+}
 
 export default RegisterPage;

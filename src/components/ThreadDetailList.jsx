@@ -1,15 +1,19 @@
+import React from "react";
 import { FaRegCommentDots } from "react-icons/fa";
 import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 import PropTypes from "prop-types";
+import parse from "html-react-parser";
 import { propDetailThread } from "../utils/props";
 import { postedAt } from "../utils/helper";
-import parse from "html-react-parser";
 
-const ThreadDetailList = ({ threadDetail }) => {
+function ThreadDetailList({ threadDetail }) {
   return (
     <div className="py-4 mb-4">
       <div className="mb-2">
-        <button className="bg-transparent hover:bg-blue-500 text-blue-700 hover:text-white px-4 py-0.5 border border-blue-500 hover:border-transparent rounded-lg text-sm">
+        <button
+          type="button"
+          className="bg-transparent hover:bg-blue-500 text-blue-700 hover:text-white px-4 py-0.5 border border-blue-500 hover:border-transparent rounded-lg text-sm"
+        >
           #{threadDetail.category}
         </button>
       </div>
@@ -32,7 +36,7 @@ const ThreadDetailList = ({ threadDetail }) => {
       </div>
     </div>
   );
-};
+}
 
 ThreadDetailList.propTypes = {
   threadDetail: PropTypes.shape(propDetailThread),

@@ -1,10 +1,11 @@
+import React from "react";
 import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 import PropTypes from "prop-types";
-import { propComments } from "../utils/props";
 import parse from "html-react-parser";
+import { propComments } from "../utils/props";
 import { postedAt } from "../utils/helper";
 
-const ThreadComment = ({ threadDetail }) => {
+function ThreadComment({ threadDetail }) {
   return (
     <div className="py-4 ">
       <h2 className="text-xl font-medium mb-4">
@@ -35,7 +36,7 @@ const ThreadComment = ({ threadDetail }) => {
       ))}
     </div>
   );
-};
+}
 
 ThreadComment.propTypes = {
   threadDetail: PropTypes.shape(propComments),

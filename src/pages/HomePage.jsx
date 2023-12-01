@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { createSelector } from "@reduxjs/toolkit";
 import Category from "../components/Category";
 import ThreadList from "../components/ThreadsList";
-import { useEffect } from "react";
 import asyncPopulateThreadsAndUser from "../states/shared/action";
 import AddButton from "../components/AddButton";
-import { createSelector } from "@reduxjs/toolkit";
 
-const HomePage = () => {
+function HomePage() {
   const selector = createSelector(
     (state) => state.threads,
     (state) => state.users,
@@ -38,6 +38,6 @@ const HomePage = () => {
       </div>
     </section>
   );
-};
+}
 
 export default HomePage;

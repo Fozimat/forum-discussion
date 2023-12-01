@@ -1,9 +1,10 @@
+import React from "react";
 import { useDispatch } from "react-redux";
-import ThreadInput from "../components/ThreadInput";
 import { useNavigate } from "react-router-dom";
+import ThreadInput from "../components/ThreadInput";
 import { asyncAddThread } from "../states/threads/action";
 
-const AddPage = () => {
+function AddPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -23,6 +24,6 @@ const AddPage = () => {
       <ThreadInput onThread={addThread} />
     </div>
   );
-};
+}
 
 export default AddPage;

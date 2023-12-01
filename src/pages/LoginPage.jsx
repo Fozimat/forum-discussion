@@ -1,8 +1,9 @@
+import React from "react";
 import { useDispatch } from "react-redux";
 import LoginInput from "../components/LoginInput";
 import { asyncSetAuthUser } from "../states/authUser/action";
 
-const LoginPage = () => {
+function LoginPage() {
   const dispatch = useDispatch();
 
   const onLogin = ({ email, password }) => {
@@ -16,6 +17,6 @@ const LoginPage = () => {
       </div>
     </section>
   );
-};
+}
 
 export default LoginPage;
