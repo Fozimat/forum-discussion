@@ -18,6 +18,16 @@ function ThreadDetailList({ threadDetail }) {
         </button>
       </div>
       <p className="text-3xl font-bold text-blue-700">{threadDetail.title}</p>
+      <div className="flex items-center py-2">
+        <img
+          src={threadDetail.owner.avatar}
+          alt="avatar"
+          className="w-10 h-10 rounded-full mr-4"
+        />
+        <div className="text-blue-600 font-medium">
+          {threadDetail.owner.name}
+        </div>
+      </div>
       <div className="overflow-hidden">{parse(threadDetail.body)}</div>
       <div className="flex items-center mt-4">
         <AiOutlineLike />
@@ -26,13 +36,7 @@ function ThreadDetailList({ threadDetail }) {
         <span className="mr-4 ml-1">{threadDetail.downVotesBy.length}</span>
         <FaRegCommentDots />
         <span className="mr-4 ml-1">{threadDetail.comments.length}</span>
-        <p className="text-gray-500">
-          Dibuat oleh{" "}
-          <span className="text-blue-600 font-medium">
-            {threadDetail.owner.name}
-          </span>{" "}
-          <span>{postedAt(threadDetail.createdAt)}</span>
-        </p>
+        <p className="text-gray-500">{postedAt(threadDetail.createdAt)}</p>
       </div>
     </div>
   );
