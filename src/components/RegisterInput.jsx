@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import useInput from "../hooks/useInput";
 
 function RegisterInput({ register }) {
@@ -97,9 +98,9 @@ function RegisterInput({ register }) {
         </form>
         <p className="text-gray-600 text-sm mt-4 text-center">
           Already have an account?{" "}
-          <a href="/login" className="text-blue-500">
+          <Link to="/login" className="text-blue-500">
             Login
-          </a>
+          </Link>
         </p>
       </div>
     </div>
