@@ -14,8 +14,8 @@ const ThreadBody = ({ htmlContent, maxLength }) => {
 };
 
 ThreadBody.propTypes = {
-  htmlContent: PropTypes.string.isRequired,
-  maxLength: PropTypes.number.isRequired,
+  htmlContent: PropTypes.string,
+  maxLength: PropTypes.number,
 };
 
 export default ThreadBody;

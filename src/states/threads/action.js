@@ -25,15 +25,6 @@ const addThreadActionCreator = (thread) => {
     };
 }
 
-const addCommentActionCreator = (comment) => {
-    return {
-        type: ActionType.ADD_COMMENT,
-        payload: {
-            comment,
-        },
-    };
-}
-
 const asyncAddThread = ({ title, body, category = '', callbackSuccess = () => { } }) => {
     return async (dispatch) => {
         dispatch(showLoading());
@@ -49,23 +40,9 @@ const asyncAddThread = ({ title, body, category = '', callbackSuccess = () => { 
     }
 }
 
-const asyncAddComment = ({ threadId, content }) => {
-    return async (dispatch) => {
-        try {
-            const comment = await api.createComment({ threadId, content });
-            dispatch(addCommentActionCreator(comment));
-        } catch (error) {
-            alert(error.message);
-        } finally {
-            dispatch(hideLoading());
-        }
-    }
-}
-
 export {
     ActionType,
     receiveThreadsActionCreator,
     addThreadActionCreator,
     asyncAddThread,
-    asyncAddComment,
 };
