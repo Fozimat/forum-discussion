@@ -1,6 +1,6 @@
 import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 import PropTypes from "prop-types";
-import { propDetailThread } from "../utils/props";
+import { propComments } from "../utils/props";
 import parse from "html-react-parser";
 import { postedAt } from "../utils/helper";
 
@@ -38,7 +38,7 @@ const ThreadComment = ({ threadDetail }) => {
 };
 
 ThreadComment.propTypes = {
-  threadDetail: PropTypes.shape(propDetailThread),
+  threadDetail: PropTypes.shape(propComments),
 };
 
 export default ThreadComment;
