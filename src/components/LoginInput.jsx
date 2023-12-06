@@ -10,7 +10,13 @@ function LoginInput({ login }) {
   return (
     <div className="w-1/3 bg-white p-8 shadow-md rounded-md">
       <h2 className="text-2xl font-semibold mb-4 text-center">Login</h2>
-      <form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          login({ email, password });
+        }}
+        method="POST"
+      >
         <div className="mb-4">
           <label
             htmlFor="email"
@@ -44,8 +50,7 @@ function LoginInput({ login }) {
           />
         </div>
         <button
-          type="button"
-          onClick={() => login({ email, password })}
+          type="submit"
           className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600"
         >
           Login

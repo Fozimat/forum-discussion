@@ -23,7 +23,7 @@ function RegisterInput({ register }) {
     <div className="flex h-screen justify-center items-center">
       <div className="w-1/3 bg-white p-8 shadow-md rounded-md">
         <h2 className="text-2xl font-semibold mb-4 text-center">Register</h2>
-        <form>
+        <form onSubmit={onSubmitHandler} method="POST">
           <div className="mb-4">
             <label
               htmlFor="name"
@@ -89,8 +89,7 @@ function RegisterInput({ register }) {
             />
           </div>
           <button
-            type="button"
-            onClick={onSubmitHandler}
+            type="submit"
             className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600"
           >
             Register
